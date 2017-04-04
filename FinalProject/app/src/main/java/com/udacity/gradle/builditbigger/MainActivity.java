@@ -51,10 +51,9 @@ public class MainActivity extends AppCompatActivity {
         String joke = null;
         joke = new RetrieveJokesTask().execute(new Pair<Context, String>(this, "Manfred")).get();
         //Joke use = new Joke();
-        Toast.makeText(this,joke, Toast.LENGTH_SHORT).show();
-
-
+        //Toast.makeText(this,joke, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, JokesActivity.class);
+        intent.putExtra("joke_payload",joke);
         startActivity(intent);
     }
 

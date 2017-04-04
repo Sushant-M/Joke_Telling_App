@@ -46,6 +46,6 @@ public class RetrieveJokesTask extends AsyncTask<Pair<Context, String>, Void, St
     }
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+       // Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }

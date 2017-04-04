@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.example.Joke;
 import com.example.jokedisplay.JokesActivity;
 
+import java.util.concurrent.ExecutionException;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,12 +47,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void tellJoke(View view) {
-        new RetrieveJokesTask().execute(new Pair<Context, String>(this, "Manfred"));
-        Joke use = new Joke();
-        //Toast.makeText(this, use.getJoke(), Toast.LENGTH_SHORT).show();
-        //Intent intent = new Intent(this, JokesActivity.class);
-        //startActivity(intent);
+    public void tellJoke(View view) throws ExecutionException, InterruptedException {
+        String joke = null;
+        joke = new RetrieveJokesTask().execute(new Pair<Context, String>(this, "Manfred")).get();
+        //Joke use = new Joke();
+        Toast.makeText(this,joke, Toast.LENGTH_SHORT).show();
+
+
+        Intent intent = new Intent(this, JokesActivity.class);
+        startActivity(intent);
     }
 
 

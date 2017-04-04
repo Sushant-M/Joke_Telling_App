@@ -38,7 +38,7 @@ public class RetrieveJokesTask extends AsyncTask<Pair<Context, String>, Void, St
         context = pairs[0].first;
         String name = pairs[0].second;
         try{
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.getJoke().execute().getJoke();
         }catch (IOException e){
             return e.getMessage();
         }
